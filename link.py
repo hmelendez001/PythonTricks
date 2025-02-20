@@ -1,3 +1,8 @@
+"""
+Shout out to user Shiva Vinodkumar on the LinkedIn Java Community for their original post on this
+Shout out to user Maksim Maksimov for their update to the Palindrome question
+"""
+
 # Check if list contains int x
 find = 111
 lst = [3, 3, 4, 5, 2, 111, 5]
@@ -35,9 +40,22 @@ if len(pairs) > 0:
 else:
     print(f"No pairs sum to {x} in {elements}")
 
-# Check if a string is a palindrome
+# Check if a string including sentences with punctuation is a palindrome
+def is_palindrome(s: str) -> bool:
+    for letter in s:
+        if letter.isalnum() is not True:
+        # if not letter.isalnum(): same expression
+            s = s.replace(letter,'')
+        if s.lower() == s[::-1].lower():
+            return True
+    return False
+
+str = "abc xyz"
+print(f"String '{str}' is palindrome? {is_palindrome(str)}")
 str = "racecar"
-print(f"String '{str}' is palindrome? {str == str[::-1]}")
+print(f"String '{str}' is palindrome? {is_palindrome(str)}")
+str = "A dog! A panic in a pagoda!"
+print(f"String '{str}' is palindrome? {is_palindrome(str)}")
 
 # Use list as stack, array, queue
 # list as stack
